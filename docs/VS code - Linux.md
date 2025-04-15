@@ -146,7 +146,7 @@ pip3 install -r requirements.txt
 ## 7️⃣ Запуск `IamReadyToBootcamp.py`
 
 ```sh
-python3 IamReadyToBootcamp.py
+python3 IamReadyToBootcamp.go
 ```
 
 или через VS Code:

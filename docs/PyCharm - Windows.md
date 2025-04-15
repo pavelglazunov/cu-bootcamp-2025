@@ -113,13 +113,13 @@ pip3 install -r requirements.txt
 Теперь запусти свой скрипт:
 
 ```sh
-python IamReadyToBootcamp.py
+python IamReadyToBootcamp.go
 ```
 
 или
 
 ```shell
-python3 IamReadyToBootcamp.py
+python3 IamReadyToBootcamp.go
 ```
 
 или через PyCharm (**ПКМ по файлу `IamReadyToBootcamp.py` → Run `IamReadyToBootcamp`**)
