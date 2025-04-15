@@ -7,22 +7,56 @@
 
 ## ✅ Что нужно сделать до начала буткемпа
 
-Перед поездкой настрой свой компьютер, установив Python и необходимые инструменты. Мы подготовили подробные инструкции для разных операционных систем:
+Перед поездкой настрой свой компьютер, установив JDK 17+ и Gradle. Вот что тебе понадобится:
 
-🔹 **Windows**
-- [Настройка Python + PyCharm на Windows](https://github.com/pavelglazunov/cu-bootcamp-2025/blob/main/docs/PyCharm%20-%20Windows.md)
-- [Настройка Python + VS Code на Windows](https://github.com/pavelglazunov/cu-bootcamp-2025/blob/main/docs/VS%20code%20-%20Windows.md)
+### 1. Установка JDK 17+
 
-🔹 **MacOS**
-- [Настройка Python + PyCharm на MacOS](https://github.com/pavelglazunov/cu-bootcamp-2025/blob/main/docs/PyCharm%20-%20MacOS.md)
-- [Настройка Python + VS Code на MacOS](https://github.com/pavelglazunov/cu-bootcamp-2025/blob/main/docs/VS%20code%20-%20MacOS.md)
+🔹 **Windows, MacOS, Linux**
+- Скачай и установи JDK 17 или новее с [Adoptium](https://adoptium.net/)
+- Убедись, что переменная окружения JAVA_HOME настроена правильно
 
+### 2. Проверка установки
 
-🔹 **Linux**
-- [Настройка Python + PyCharm на Linux](https://github.com/pavelglazunov/cu-bootcamp-2025/blob/main/docs/PyCharm%20-%20Linux.md)
-- [Настройка Python + VS Code на Linux](https://github.com/pavelglazunov/cu-bootcamp-2025/blob/main/docs/VS%20code%20-%20Linux.md)
+После установки JDK, проверь версию Java в командной строке:
 
-Выбери свою операционную систему и следуй инструкции. Если возникнут вопросы, пиши их в чат!
+```bash
+java -version
+```
+
+Ты должен увидеть что-то вроде:
+```
+openjdk version "17.0.x" 20xx-xx-xx
+OpenJDK Runtime Environment ...
+```
+
+### 3. Запуск проверочного приложения
+
+Клонируй этот репозиторий и запусти проверочное приложение с помощью Gradle:
+
+```bash
+# Клонирование репозитория
+git clone https://github.com/pavelglazunov/cu-bootcamp-2025.git
+cd cu-bootcamp-2025
+
+# Запуск приложения через Gradle
+# На Windows:
+.\gradlew.bat run
+
+# На MacOS/Linux:
+./gradlew run
+```
+
+Если всё настроено правильно, ты увидишь сообщение:
+```
+[ok] УРА! Все работает, ждем тебя на буткемпе!
+```
+
+### 4. Рекомендуемые IDE
+
+Для работы с Kotlin рекомендуем использовать:
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) (Community Edition бесплатна)
+- [VS Code](https://code.visualstudio.com/) с расширением [Kotlin](https://marketplace.visualstudio.com/items?itemName=mathiasfrohlich.Kotlin)
+
+Выбери подходящую для тебя IDE и установи её. Если возникнут вопросы, пиши их в чат!
 
 До встречи на буткемпе! 🎉
-

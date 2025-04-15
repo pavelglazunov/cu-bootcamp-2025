@@ -1,30 +1,21 @@
 
-## 1️⃣ Установка Python
+## 1️⃣ Установка JDK
 
-1. Перейди на [официальный сайт Python](https://www.python.org/downloads/).
-2. Скачай Python версии 3.12 для Windows.
-3. Запусти установщик и **обязательно** поставь галочку ✅ "Add Python to PATH".
+1. Перейди на [сайт Adoptium](https://adoptium.net/).
+2. Скачай JDK версии 17 или новее для Windows.
+3. Запусти установщик и следуй инструкциям.
+4. **Обязательно** поставь галочку ✅ "Add to PATH" для добавления Java в переменные среды.
 
+5. Дождись завершения установки.
+6. (может потребоваться перезапустить компьютер).
 
-![add_path](https://github.com/pavelglazunov/cu-bootcamp-2025/blob/main/docs/static/add_to_path.png)
-
-
-4. Дождись завершения установки.
-5. (может потребоваться перезапустить компьютер).
-
-Проверить успешную установку можно командой в терминале:
+Проверить успешную установку можно командой в терминале (PowerShell или Command Prompt):
 
 ```sh
-python --version
+java --version
 ```
 
-или
-
-```sh
-python3 --version
-```
-
-Если видишь `Python 3.12.x` – всё ок! 🎉
+Если видишь версию `17.x.x` или выше – всё ок! 🎉
 
 ---
 
@@ -46,13 +37,13 @@ cd your_dir
 1. Склонируй репозиторий:
 
 ```sh
-git clone https://github.com/pavelglazunov/cu-butcamp-2025.git
+git clone https://github.com/pavelglazunov/cu-bootcamp-2025.git
 ```
 
 1. Перейди в папку с проектом:
 
 ```sh
-cd cu-butcamp-2025
+cd cu-bootcamp-2025
 ```
 
 
@@ -62,11 +53,11 @@ cd cu-butcamp-2025
 
 1. Скачай VS Code с [официального сайта](https://code.visualstudio.com/Download).
 2. Установи его, оставляя настройки по умолчанию.
-3. Открой VS Code и установи расширение "Python":
+3. Открой VS Code и установи расширения для Kotlin:
     - Перейди в **Extensions** (Ctrl+Shift+X).
-    - Найди **Python** от Microsoft.
-    - Нажми "Install".
-
+    - Найди и установи **Kotlin** от mathiasfrohlich.
+    - Найди и установи **Kotlin Language** от mathiasfrohlich.
+    - Найди и установи **Gradle for Java** от Microsoft (опционально).
 
 ![extensions](https://github.com/pavelglazunov/cu-bootcamp-2025/blob/main/docs/static/extansions.png)
 
@@ -74,66 +65,94 @@ cd cu-butcamp-2025
 
 ---
 
-## 4️⃣ Создание виртуального окружения
+## 4️⃣ Настройка Gradle
 
-1. Открой VS Code и выбери папку проекта (**File** → **Open Folder...** → выбери `cu-butcamp-2025`).
-2. Открой **Терминал** (**Terminal** → **New Terminal** или `Ctrl+Shift+` `).
-3. Создай виртуальное окружение:
-
-```sh
-python -m venv venv
-```
-
-4. Активируй его:
+1. Открой VS Code и выбери папку проекта (**File** → **Open Folder...** → выбери `cu-bootcamp-2025`).
+2. Открой **Терминал** (**Terminal** → **New Terminal** или `Ctrl+` `).
+3. Проверь, что Gradle wrapper работает:
 
 ```sh
-venv\Scripts\activate
+.\gradlew.bat --version
 ```
 
-5. Убедись, что в начале строки появился `(venv)`.
+4. Если возникает ошибка с правами доступа, выполни:
 
+```sh
+# Это может потребоваться в PowerShell с повышенными правами
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
 
-![venv_vscode](https://github.com/pavelglazunov/cu-bootcamp-2025/blob/main/docs/static/venv_vscode.png)
+5. Gradle автоматически загрузит все необходимые зависимости для проекта.
 
 
 
 ---
 
-## 5️⃣ Установка зависимостей из `requirements.txt`
+## 5️⃣ Управление зависимостями через Gradle
 
-Если ты правильно склонировал репозиторий, то у тебя есть файл `requirements.txt`, установи все нужные пакеты командой:
+В Kotlin проектах зависимости управляются через Gradle. Все необходимые зависимости уже определены в файле `build.gradle.kts`.
+
+1. Открой файл `build.gradle.kts` в VS Code, чтобы увидеть список зависимостей.
+2. Если нужно добавить новую зависимость, добавь её в раздел `dependencies` и обнови проект:
+
+```kotlin
+dependencies {
+    implementation("org.example:library:1.0.0")
+}
+```
+
+3. После изменения `build.gradle.kts`, обнови зависимости Gradle:
 
 ```sh
-pip3 install -r requirements.txt
+.\gradlew.bat --refresh-dependencies
 ```
 
 ---
 
-## 6️⃣ Запуск `IamReadyToBootcamp.py`
+## 6️⃣ Запуск Kotlin приложения
 
-Запусти свой скрипт одной из команд:
+Запусти приложение одним из способов:
 
-```sh
-python IamReadyToBootcamp.py
-```
-
-или
+### Через Gradle:
 
 ```sh
-python3 IamReadyToBootcamp.py
+.\gradlew.bat run
 ```
 
-или через VS Code:
+### Через VS Code:
 
-- Открыть `IamReadyToBootcamp.py`.
-- Нажать `F5` или `Run` → `Run Without Debugging`.
+1. Установи расширение **Code Runner** (если еще не установлено).
+2. Открой файл `src/main/kotlin/org/bootcamp/Main.kt`.
+3. Нажми правой кнопкой мыши и выбери **Run Code** или используй сочетание клавиш **Ctrl+Alt+N**.
 
-![run_vscode](https://github.com/pavelglazunov/cu-bootcamp-2025/blob/main/docs/static/run_vscode.png)
+Или настрой задачу запуска:
 
+1. Нажми **Ctrl+Shift+P**, введи "Tasks: Configure Task" и выбери "Create tasks.json file from template".
+2. Выбери "Others" для создания пустого шаблона.
+3. Замени содержимое файла на:
+
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Kotlin App",
+            "type": "shell",
+            "command": ".\\gradlew.bat run",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
+```
+
+4. Сохрани файл и запусти задачу через **Terminal** → **Run Task**.
 
 Если программа **НЕ** вывела
 
-`[status: OK] УРА! Все работает, ждем тебя на буткемпе!`
+`[ok] УРА! Все работает, ждем тебя на буткемпе!`
 
 иди к следующему пункту.
 
@@ -143,8 +162,9 @@ python3 IamReadyToBootcamp.py
 
 |Ошибка|Как решить|
 |---|---|
-|версия Python должна быть минимум 3.12|Установи нужную версию с [сайта](https://www.python.org/downloads/release/python-3120/)|
-|Пропущенные библиотеки: <название>|Команда`pip3 install <название>` или`pip3 install -r requirements.txt`|
-|Библиотеки с ошибкой в версии: <название>|Команда`pip3 install <название>==<версия>`|
+|версия Java должна быть минимум 17|Установи JDK 17 или выше с [сайта Adoptium](https://adoptium.net/)|
+|Ошибка при сборке Gradle|Выполни `.\gradlew.bat clean build --refresh-dependencies`|
+|Ошибка "Permission denied" при запуске gradlew|В PowerShell выполни `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`|
+|Ошибка "Could not find or load main class"|Проверь, что правильно импортировал проект и что файл `build.gradle.kts` корректно настроен|
 
 Если у тебя другая ошибка, обратись в чат!
